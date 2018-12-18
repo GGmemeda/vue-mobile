@@ -46,22 +46,10 @@
             </div>
           </template>
         </div>
-        <div class="item-dishes">
-          <div class="left-img">
-            <img src="../../assets/default.png" alt="">
-          </div>
-          <div class="right-content">
-            <div class="title">标题在这儿呢</div>
-            <div class="content">我是内容没有那么多哦</div>
-          </div>
-        </div>
-
       </scroll>
     </div>
-
   </div>
 </template>
-
 <script>
   import Scroll from '../../components/scroll/scroll.vue';
   import clamp from '../../directive/clamp';
@@ -101,6 +89,13 @@
     mounted () {
       this.$nextTick(() => {
         this.getFoodListHeight();
+        const winHei=window.innerHeight;
+        const allDishes=document.querySelectorAll('.dishes-contain');
+        const lastChild=allDishes[allDishes.length-1];
+        const lastHei=lastChild.clientHeight;
+        if(lastHei<winHei){
+          lastChild.style.minHeight=winHei+'px';
+        }
       });
       this.$Lazyload.$on('loaded', function (listener) {
       });
