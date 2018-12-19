@@ -1,15 +1,15 @@
-import Cookies from 'js-cookie';
+import { cookie } from 'vux'
 
 const TokenKey = 'SYSWECHAT-Token';
 
 export function getToken () {
-  return Cookies.get(TokenKey);
+  return cookie.get(TokenKey);
 }
 
 export function setToken (token) {
-  return Cookies.set(TokenKey, token);
+  return cookie.set(TokenKey, token);
 }
 
 export function removeToken () {
-  return Cookies.remove(TokenKey);
+  return cookie.remove(TokenKey);
 }
